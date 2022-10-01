@@ -58,39 +58,45 @@
                 $sor = implode(";",$_POST) . PHP_EOL;
                 fwrite($file,$sor);
                 ?>
-                <p>Sikeres felvetel</p>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Sikeres felvetel.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php else: ?>
-                <p><?php echo $hiba ?></p>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo $hiba ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php endif; ?>
         <?php
         }
         ?>
         <h1>Rövid italok</h1>
         <form action="felvetel.php" method="post" name="ital_felvetel">
-            <div>
+            <div class="mb-3">
                 <label for="nev">Név: </label>
-                <input type="text" id="nev" name="nev" placeholder="Név">
+                <input class="form-control" type="text" id="nev" name="nev" placeholder="Név" required>
             </div>
-            <div>
+            <div class="mb-3">
                 <label for="gy">Gyártási év: </label>
-                <input type="number" id="gy" name="gy" placeholder="Gyártási év">
+                <input class="form-control" type="number" id="gy" name="gy" placeholder="Gyártási év" required>
             </div>
-            <div>
+            <div class="mb-3">
                 <label for="a">Alkohol tartalom: </label>
-                <input type="number" id="a" name="a" placeholder="ennyi % alkoholt tartalmaz">
+                <input class="form-control" type="number" id="a" name="a" placeholder="ennyi % alkoholt tartalmaz" required>
             </div>
                 <label for="m">Kiszerelés mérete : </label>
-            <div>
-                <input type="radio" id="02" name="m" value="0,2dl" id="02">
-                <label for="02">0,2dl</label><br>
-                <input type="radio" id="05" name="m" value="0,5dl" id="05">
+            <div class="mb-3">
+                <input  type="radio" id="02" name="m" value="0,2dl" id="02" required>
+                <label  for="02">0,2dl</label><br>
+                <input  type="radio" id="05" name="m" value="0,5dl" id="05">
                 <label for="05">0,5dl</label><br>
-                <input type="radio" id="1l" name="m" value="1l" id="1">
+                <input  type="radio" id="1l" name="m" value="1l" id="1">
                 <label for="javascript">1l</label>
             </div>
-            <div>
+            <div class="mb-3">
                 <label for="nev_input">Fajtája: </label>
-                <select name="fajta" id="fajta">
+                <select class="form-select" name="fajta" id="fajta" required>
                     <option value=""></option>
                     <option value="rum">Rum</option>
                     <option value="sor">Sör</option>
@@ -101,7 +107,7 @@
                     <option value="egyeb">egyéb</option>
                 </select>
             </div>
-            <button type="submit">Felvétel</button>
+            <button class="btn btn-outline-secondary" type="submit">Felvétel</button>
         </form>
 </main>
 </body>

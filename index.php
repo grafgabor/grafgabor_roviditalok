@@ -27,7 +27,7 @@
   </div>
 </nav>
     <main class="container">
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>#</th>
