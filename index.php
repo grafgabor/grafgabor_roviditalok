@@ -27,6 +27,7 @@
   </div>
 </nav>
     <main class="container">
+        <h1>Listazása az italoknak</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
