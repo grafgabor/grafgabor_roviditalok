@@ -7,6 +7,54 @@
     <title>Rövid italak</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script>
+        function validalas(){
+            const nev = document.forms[ital_felvetel] [nev].value
+            const gy = document.forms[ital_felvetel] [gy].value
+            const a = document.forms[ital_felvetel] [a].value
+            const  m  = document.forms[ital_felvetel] [m].value
+            const fajta = document.forms[ital_felvetel] [fajta].value
+            if (nev.trim().length == 0) {
+                alert("A név megadása kötelező")
+                return false
+            }
+            if (gy.trim().length == 0) {
+                alert("A gyártási év megadása kötelező")
+                return false
+            }
+            if (gy != parseInt(gy)) {
+                alert("A gyártási év csak egész szám lehet")
+                return false
+            }
+            
+            if (2022 > gy) {
+                alert("A gyártási év nem elhet tobb mint a mai datum")
+                return false
+            }
+
+            if (a.trim().length == 0) {
+                alert("A alkohol mennyisége megadása kötelező")
+                return false
+            }
+            if (100 > a ) {
+                alert("A alkohol mennyisége nem lehet tobb mint 100%")
+                return false
+            }
+            if (a != parseInt(gy)) {
+                alert("A alkohol mennyisége csak egész szám lehet kerekitse a megadott mennyiséget ")
+                return false
+            }
+            if (m.trim().length == 0) {
+                alert("A a kiszereles megadása kötelező")
+                return false
+            }
+            if (fajta.trim().length == 0) {
+                alert("A fajta megadása kötelező")
+                return false
+            }
+            return true
+        }
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-light">
@@ -72,7 +120,7 @@
         }
         ?>
         <h1>Rövid italok</h1>
-        <form action="felvetel.php" method="post" name="ital_felvetel">
+        <form action="felvetel.php" method="post" name="ital_felvetel" onsubmit="return validalas();">
             <div class="mb-3">
                 <label for="nev">Név: </label>
                 <input class="form-control" type="text" id="nev" name="nev" placeholder="Név" required>
